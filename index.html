@@ -141,8 +141,15 @@
 		</div>
 			<script type="text/javascript">
 			function myFunction() {
+				var database = firebase.database();
+				firebase.database().ref('scores/' + localStorage.getItem('id')).set({
+    score: document.getElementById("cScore").innerHTML,
+    id: localStorage.getItem('id'),
+
+  });
 				alert(localStorage.getItem('id'))
- alert(document.getElementById("cScore").innerHTML)
+				alert('yes')
+
 }
 				(function addRussianSocialShare(){
 					var lang=navigator.language || navigator.userLanguage;
@@ -153,5 +160,28 @@
 					}})()
 			</script>
 		<script type="text/javascript" src='vendor/rrssb.min.js'></script>
+		<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyDZ2luUwJEDPO_61yQXecFEZMtzlN-lnck",
+    authDomain: "chance-17e65.firebaseapp.com",
+    databaseURL: "https://chance-17e65.firebaseio.com",
+    projectId: "chance-17e65",
+    storageBucket: "chance-17e65.appspot.com",
+    messagingSenderId: "1010104050159",
+    appId: "1:1010104050159:web:958f16db4e1a8edcc7561a",
+    measurementId: "G-8MQ9D8HMG0"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
 	</body>
 </html>
