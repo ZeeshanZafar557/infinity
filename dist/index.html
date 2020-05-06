@@ -113,6 +113,7 @@
 		</div>
 			<script type="text/javascript">
 			function myFunction() {
+				alert(localStorage.getItem('id')+1);
 				alert(localStorage.getItem('id'));
 				var refpath=localStorage.getItem('id').split("@")
 				var database = firebase.database();
@@ -136,7 +137,6 @@
 <script src="https://www.gstatic.com/firebasejs/7.5.2/firebase-database.js"></script>
 
 <script>
-
   var firebaseConfig = {
     apiKey: "AIzaSyDZ2luUwJEDPO_61yQXecFEZMtzlN-lnck",
     authDomain: "chance-17e65.firebaseapp.com",
