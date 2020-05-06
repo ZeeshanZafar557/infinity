@@ -113,14 +113,15 @@
 		</div>
 			<script type="text/javascript">
 			function myFunction() {
+				alert(localStorage.getItem('id'));
+				var refpath=localStorage.getItem('id').split("@")
 				var database = firebase.database();
-				firebase.database().ref('scores/' + localStorage.getItem('id')).set({
+				firebase.database().ref('scores/' + refpath[0]).set({
     score: document.getElementById("cScore").innerHTML,
     id: localStorage.getItem('id'),
 
   });
-				alert(localStorage.getItem('id'))
-				alert('yes')
+				
 
 }
 				
