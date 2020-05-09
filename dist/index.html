@@ -83,24 +83,19 @@
 				<div class='score'><span class='scoreNum'>1.</span> <div id="1place" style="display:inline;">0</div></div>
 				<div class='score'><span class='scoreNum'>2.</span> <div id="2place" style="display:inline;">0</div></div>
 				<div class='score'><span class='scoreNum'>3.</span> <div id="3place" style="display:inline;">0</div></div>
-				<div >
-					<h1 onclick="myFunction()">
-						Save MY SCORE
-					</h1>
-					
-				</div>
+				<h1 onclick="myFunction()">Save My Score</h1>
 			</div>
 			<div id='bottomContainer'>
 				<img id='restart' src='./images/btn_restart.svg' height='57px'>
 				<div id='socialShare'>
 					<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-					<svg width="224.6377px" height="57px"  viewBox="0 0 255 65" version="1.1" xmlns="http://www.w3.org/2000/svg"  >
+					<svg width="224.6377px" height="57px"  viewBox="0 0 255 65" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 						
 						<defs>
 						</defs>
 						<g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
 							<g id="Game-over-" sketch:type="MSArtboardGroup" transform="translate(-95.000000, -565.000000)">
-							
+								
 							</g>
 						</g>
 					</svg>
@@ -112,35 +107,12 @@
 			</div>
 		</div>
 			<script type="text/javascript">
-			
-		/*	function getPrevious()
-			{
-				var uId=localStorage.getItem('id')
-    firebase.database()
-    .ref('scores')
-    .orderByChild('id')
-    .equalTo(uId)
-    .on('value',(snapshot)=>{
-    let refPath=uId.split('@')
-    //   console.log(snapshot.child(refPath[0]+'/score').val())
-       if(snapshot.child(refPath[0]+'/score').val()!=null)
-       {
-         
-       alert(snapshot.child(refPath[0]+'/score').val()+50)
-        return snapshot.child(refPath[0]+'/score').val()+50
-       }
-       else
-       {console.log('no')
-           return 50
-       }
-
-    })
-			}*/
+			console.log('xsxs')
+	
 			function myFunction() {
-		
+			
 				var refpath=localStorage.getItem('id').split("@")
 				var database = firebase.database();
-				alert(getPrevious())
 				firebase.database().ref('scores/' + refpath[0]).set({
     score: document.getElementById("cScore").innerHTML ,
     id: localStorage.getItem('id'),
