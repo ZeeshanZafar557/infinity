@@ -83,8 +83,8 @@
 				<div class='score'><span class='scoreNum'>1.</span> <div id="1place" style="display:inline;">0</div></div>
 				<div class='score'><span class='scoreNum'>2.</span> <div id="2place" style="display:inline;">0</div></div>
 				<div class='score'><span class='scoreNum'>3.</span> <div id="3place" style="display:inline;">0</div></div>
-				<div onclick="myFunction()">
-					<h1>
+				<div >
+					<h1 onclick="myFunction()">
 						Save MY SCORE
 					</h1>
 					
@@ -95,7 +95,7 @@
 				<div id='socialShare'>
 					<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 					<svg width="224.6377px" height="57px"  viewBox="0 0 255 65" version="1.1" xmlns="http://www.w3.org/2000/svg"  >
-						<title>Share button</title>
+						
 						<defs>
 						</defs>
 						<g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
@@ -112,7 +112,7 @@
 			</div>
 		</div>
 			<script type="text/javascript">
-			console.log('xsxs')
+			
 			function getPrevious()
 			{
 				var uId=localStorage.getItem('id')
@@ -140,6 +140,7 @@
 			
 				var refpath=localStorage.getItem('id').split("@")
 				var database = firebase.database();
+				alert(getPrevious())
 				firebase.database().ref('scores/' + refpath[0]).set({
     score: document.getElementById("cScore").innerHTML + getPrevious(),
     id: localStorage.getItem('id'),
