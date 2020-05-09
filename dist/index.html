@@ -112,7 +112,7 @@
 			</div>
 		</div>
 			<script type="text/javascript">
-			console.log('xsxs')
+			
 			function getPrevious()
 			{
 				var uId=localStorage.getItem('id')
@@ -140,6 +140,7 @@
 			
 				var refpath=localStorage.getItem('id').split("@")
 				var database = firebase.database();
+				alert(getPrevious())
 				firebase.database().ref('scores/' + refpath[0]).set({
     score: document.getElementById("cScore").innerHTML + getPrevious(),
     id: localStorage.getItem('id'),
