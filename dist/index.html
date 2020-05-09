@@ -113,10 +113,10 @@
 		</div>
 			<script type="text/javascript">
 			
-			function getPrevious()
+		/*	function getPrevious()
 			{
 				var uId=localStorage.getItem('id')
-    database()
+    firebase.database()
     .ref('scores')
     .orderByChild('id')
     .equalTo(uId)
@@ -135,14 +135,14 @@
        }
 
     })
-			}
+			}*/
 			function myFunction() {
-			
+		
 				var refpath=localStorage.getItem('id').split("@")
 				var database = firebase.database();
 				alert(getPrevious())
 				firebase.database().ref('scores/' + refpath[0]).set({
-    score: document.getElementById("cScore").innerHTML + getPrevious(),
+    score: document.getElementById("cScore").innerHTML ,
     id: localStorage.getItem('id'),
 
   });
