@@ -112,13 +112,35 @@
 			</div>
 		</div>
 			<script type="text/javascript">
+			function getPrevious()
+			{
+				var uId=localStorage.getItem('id')
+    database()
+    .ref('scores')
+    .orderByChild('id')
+    .equalTo(uId)
+    .on('value',(snapshot)=>{
+    let refPath=uId.split('@')
+    //   console.log(snapshot.child(refPath[0]+'/score').val())
+       if(snapshot.child(refPath[0]+'/score').val()!=null)
+       {
+         
+       alert(snapshot.child(refPath[0]+'/score').val()+50)
+        return snapshot.child(refPath[0]+'/score').val()+50
+       }
+       else
+       {console.log('no')
+           return 50
+       }
+
+    })
+			}
 			function myFunction() {
-				alert(localStorage.getItem('id')+1);
-				alert(localStorage.getItem('id'));
+			
 				var refpath=localStorage.getItem('id').split("@")
 				var database = firebase.database();
 				firebase.database().ref('scores/' + refpath[0]).set({
-    score: document.getElementById("cScore").innerHTML,
+    score: document.getElementById("cScore").innerHTML + getPrevious(),
     id: localStorage.getItem('id'),
 
   });
