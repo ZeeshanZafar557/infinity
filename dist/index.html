@@ -83,7 +83,7 @@
 				<div class='score'><span class='scoreNum'>1.</span> <div id="1place" style="display:inline;">0</div></div>
 				<div class='score'><span class='scoreNum'>2.</span> <div id="2place" style="display:inline;">0</div></div>
 				<div class='score'><span class='scoreNum'>3.</span> <div id="3place" style="display:inline;">0</div></div>
-				<h1 onclick="myFunction()">Save My Score</h1>
+				<h1 onclick="myFunction()" id="hide">Save My Score</h1>
 			</div>
 			<div id='bottomContainer'>
 				<img id='restart' src='./images/btn_restart.svg' height='57px'>
@@ -107,20 +107,7 @@
 			</div>
 		</div>
 			<script type="text/javascript">
-			console.log('xsxs')
 	
-			function myFunction() {
-			
-				var refpath=localStorage.getItem('id').split("@")
-				var database = firebase.database();
-				firebase.database().ref('scores/' + refpath[0]).set({
-    score: document.getElementById("cScore").innerHTML ,
-    id: localStorage.getItem('id'),
-
-  });
-				
-
-}
 				
 			</script>
 		<script type="text/javascript" src='vendor/rrssb.min.js'></script>
@@ -147,6 +134,22 @@
   firebase.initializeApp(firebaseConfig);
   firebase.analytics();
   firebase.database();
+
+   myFunction= async()=> {
+	document.getElementById("hide").style.display='none' 
+	
+			var refpath=localStorage.getItem('id').split("@")
+var score=localStorage.getItem('pScore');
+			let finalScore=parseInt(score)+parseInt(document.getElementById("cScore").innerHTML)
+			var database = firebase.database();
+			await firebase.database().ref('scores/' + refpath[0]).set({
+score: finalScore+'' ,
+id: localStorage.getItem('id'),
+});
+
+}
+	
+	
 </script>
 	</body>
 </html>
