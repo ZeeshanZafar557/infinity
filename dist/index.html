@@ -142,11 +142,11 @@
             var score=localStorage.getItem('pScore');
 			let finalScore=parseInt(score)+parseInt(document.getElementById("cScore").innerHTML)
 			var database = firebase.database();
-			await firebase.database().ref('scores/' + refpath[0]).set({
+			 firebase.database().ref('scores/' + refpath[0]).set({
 score: finalScore+'' ,
 id: localStorage.getItem('id'),
 });
-
+location.reload();
 }
 
 	
